@@ -1,0 +1,29 @@
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="devicename">
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+        	<message>必须输入设备名称</message>
+        </field-validator>
+        <field-validator type="stringlength">
+        	<param name="minLength">1</param>
+        	<param name="maxlength">100</param>
+        	<message>用户名长度须在1和100之间</message>
+        </field-validator>
+    </field>
+    <field name="ower">
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+        	<message>必须输入所有者</message>
+        </field-validator>
+    </field>
+    <field name="user">
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+        	<message>必须输入使用者</message>
+        </field-validator>
+    </field>
+</validators>

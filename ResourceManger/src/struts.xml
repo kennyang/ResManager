@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--  <constant name="struts.enable.DynamicMethodInvocation" value="true" />  -->
+    <constant name="struts.i18n.encoding" value="utf-8"></constant>
+    <package name="struts2" extends="struts-default" namespace="/">
+		<action name="userOpt" class="com.byosoft.action.registerAction">
+			<result name="registersuccess" type="chain">showuser</result>
+			<result name="getsuccess">/editUser.jsp</result>
+			<result name="viewsuccess">/viewUser.jsp</result>
+			<result name="updatesuccess" type="chain">showuser</result>
+			<result name="deletesuccess" type="chain">showuser</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/user.jsp</result>
+		</action>
+
+		<action name="toolOpt" class="com.byosoft.action.toolAction">
+			<result name="viewsuccess">/editDownload.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="mydownload" class="com.byosoft.action.DownloadFileAction">
+			<result name="success">/toollist.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/editDownload.jsp</result>
+		</action>
+		
+		<action name="login" class="com.byosoft.action.loginAction">
+			<result name="success">/userlist.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		
+		<action name="showdevice" class="com.byosoft.action.showDeviceListAction">
+			<result name="success">/devicelist.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="showuser" class="com.byosoft.action.showUserListAction">
+			<result name="success">/userlist.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		
+		<action name="showsearchdevice" class="com.byosoft.action.showSearchDeviceListAction">
+			<result name="success">/devicelist.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>	
+
+		<action name="showsearchuser" class="com.byosoft.action.showSearchUserListAction">
+			<result name="success">/userlist.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>	
+
+		<action name="showsearchtool" class="com.byosoft.action.showSearchToolListAction">
+			<result name="success">/toollist.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>	
+		
+		<action name="deviceOpt" class="deviceAction">
+			<result name="addsuccess" type="chain">showdevice</result>
+			<result name="getsuccess">/editDevice.jsp</result>
+			<result name="viewsuccess">/viewDevice.jsp</result>
+			<result name="updatesuccess" type="chain">showdevice</result>
+			<result name="deletesuccess" type="chain">showdevice</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/device.jsp</result>
+		</action>		
+		
+		<action name="devicequery" class="com.byosoft.action.deviceQueryAction">
+			<result name="success" type="chain">showsearchdevice</result>
+			<result name="input">/devicelist.jsp</result>
+		</action>
+		
+		<action name="toolquery" class="com.byosoft.action.toolQueryAction">
+			<result name="success" type="chain">showsearchtool</result>
+			<result name="input">/toollist.jsp</result>
+		</action>
+			
+		<action name="userquery" class="com.byosoft.action.userQueryAction">
+			<result name="success" type="chain">showsearchuser</result>
+			<result name="input">/userlist.jsp</result>
+		</action>
+		
+		<action name="batchdelete" class="com.byosoft.action.BatchDeleteAction">
+			<result name="success" type="chain">showdevice</result>
+		</action>
+		<action name="batchdeleteuser" class="com.byosoft.action.BatchDeleteUserAction">
+			<result name="success" type="chain">showuser</result>
+			<result name="error">/error.jsp</result>
+		</action>		
+    </package>
+
+</struts>

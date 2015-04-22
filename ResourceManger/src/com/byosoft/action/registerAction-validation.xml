@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="username">
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+        	<message>必须输入用户名</message>
+        </field-validator>
+        <field-validator type="stringlength">
+        	<param name="minLength">3</param>
+        	<param name="maxlength">20</param>
+        	<message>用户名长度须在3和20之间</message>
+        </field-validator>
+    </field>
+    
+    <field name="password">
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+        	<message>必须输入密码</message>
+        </field-validator>
+        <field-validator type="stringlength">
+        	<param name="minLength">6</param>
+        	<param name="maxlength">20</param>
+        	<message>密码长度须在6和20之间</message>
+        </field-validator>    
+    </field>
+
+    <field name="repassword">
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+        	<message>必须输入确认密码</message>
+        </field-validator>
+        <field-validator type="stringlength">
+        	<param name="minLength">6</param>
+        	<param name="maxlength">20</param>
+        	<message>确认密码长度须在6和20之间</message>
+        </field-validator>  
+        <field-validator type="fieldexpression">
+        	<param name="expression"><![CDATA[(password==repassword)]]></param>
+        	<message>密码和确认密码不一致</message>
+        </field-validator>    
+    </field>
+
+    <field name="chinesename">
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+        	<message>必须输入真实姓名</message>
+        </field-validator>  
+    </field>
+
+    <field name="phonenumber">
+        <field-validator type="regex">
+        	<param name="regexExpression"><![CDATA[(1[0-9]{10})]]></param>
+        	<message>手机号码格式不正确</message>
+        </field-validator> 
+    </field>
+    
+     <field name="email">
+        <field-validator type="regex">
+        	<param name="regexExpression"><![CDATA[(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)]]></param>
+        	<message>电子邮箱格式不正确</message>
+        </field-validator> 
+    </field>   
+</validators>
